@@ -24,7 +24,7 @@ addBookToLibrary(
 );
 addBookToLibrary("Wuthering Heights", "Emily Bronte", "464", "Not read");
 
-function createEntry(book) {
+function createBookEntry(book) {
   let card = document.createElement("div");
   card.classList.add("card");
 
@@ -73,4 +73,10 @@ function bookDataElement(book) {
   }
 }
 
-createEntry(myLibrary[0]);
+function displayLibrary() {
+  for (let i = 0; i < myLibrary.length; i++) {
+    createBookEntry(myLibrary[i]);
+  }
+}
+
+displayLibrary();
