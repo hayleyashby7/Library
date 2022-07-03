@@ -1,10 +1,12 @@
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
-	this.title = title;
-	this.author = author;
-	this.pages = pages;
-	this.read = read;
+class Book {
+	constructor(title, author, pages, read) {
+		this.title = title;
+		this.author = author;
+		this.pages = pages;
+		this.read = read;
+	}
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -16,5 +18,3 @@ function addBookToLibrary(title, author, pages, read) {
 addBookToLibrary("Nineteen Eighty-Four", "George Orwell", "328", "True");
 addBookToLibrary("Alice's Adventures in Wonderland", "Lewis Carroll", "320", "True");
 addBookToLibrary("Wuthering Heights", "Emily Bronte", "464", "False");
-
-console.log(myLibrary);
