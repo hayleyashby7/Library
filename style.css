@@ -1,0 +1,23 @@
+.library {
+  display: flexbox;
+  flex: row wrap;
+}
+
+.card {
+  background-color: bisque;
+  border: 2px solid black;
+  color: brown;
+  width: max-content;
+  height: max-content;
+}
+
+.book-data {
+  margin: 10px;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
