@@ -1,10 +1,13 @@
+import { clickRemove } from "./events.js";
+import { updateLibrary } from "./library.js";
+
 function createBookElement(book, index) {
 	let card = document.createElement("div");
 	card.classList.add("card");
 	card.setAttribute("data-index", index);
 	card.append(bookDataElement(book));
 	card.append(bookReadButton(book));
-	card.append(bookRemoveButton(book));
+	card.append(bookRemoveButton(book, index));
 
 	document.getElementById("library").append(card);
 }
@@ -59,14 +62,24 @@ function bookReadButton(book) {
 	return readButton;
 }
 
-function bookRemoveButton(book) {
+function bookRemoveButton(book, index) {
 	let removeButton = document.createElement("button");
 	removeButton.classList.add("control");
 	removeButton.classList.add("remove");
 	removeButton.setAttribute("type", "button");
+	removeButton.setAttribute("data-index", index);
 	removeButton.innerHTML = "REMOVE";
+	removeButton.addEventListener("click", clickRemove);
 
 	return removeButton;
 }
 
-export { createBookElement };
+function refreshDisplay() {
+	let books = document.querySelectorAll(".card");
+	for (let book of books) {
+		book.remove();
+	}
+	updateLibrary();
+}
+
+export { createBookElement, refreshDisplay };
