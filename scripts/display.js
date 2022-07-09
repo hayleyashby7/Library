@@ -1,4 +1,4 @@
-import { clickRemove } from "./events.js";
+import { clickRemove, clickRead } from "./events.js";
 import { updateLibrary } from "./library.js";
 
 function createBookElement(book, index) {
@@ -6,7 +6,7 @@ function createBookElement(book, index) {
 	card.classList.add("card");
 	card.setAttribute("data-index", index);
 	card.append(bookDataElement(book));
-	card.append(bookReadButton(book));
+	card.append(bookReadButton(book, index));
 	card.append(bookRemoveButton(book, index));
 
 	document.getElementById("library").append(card);
@@ -47,17 +47,27 @@ function bookDataElement(book) {
 	function readListElem(read) {
 		let readElem = document.createElement("li");
 		readElem.classList.add("read");
-		readElem.innerHTML = read;
+		if (read) {
+			readElem.innerHTML = "Have Read";
+		} else {
+			readElem.innerHTML = "Not Read";
+		}
 		return readElem;
 	}
 }
 
-function bookReadButton(book) {
+function bookReadButton(book, index) {
 	let readButton = document.createElement("button");
 	readButton.classList.add("control");
 	readButton.classList.add("read");
 	readButton.setAttribute("type", "button");
-	readButton.innerHTML = "READ";
+	readButton.setAttribute("data-index", index);
+	if (book.read) {
+		readButton.innerHTML = "NOT READ";
+	} else {
+		readButton.innerHTML = "HAVE READ";
+	}
+	readButton.addEventListener("click", clickRead);
 
 	return readButton;
 }

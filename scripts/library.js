@@ -15,7 +15,7 @@ export function updateLibrary() {
 	}
 }
 
-addBookToLibrary("Nineteen Eighty-Four", "George Orwell", "328", "Have read");
-addBookToLibrary("Alice's Adventures in Wonderland", "Lewis Carroll", "320", "Have read");
-addBookToLibrary("Wuthering Heights", "Emily Bronte", "464", "Not read");
+addBookToLibrary("Nineteen Eighty-Four", "George Orwell", "328", true);
+addBookToLibrary("Alice's Adventures in Wonderland", "Lewis Carroll", "320", true);
+addBookToLibrary("Wuthering Heights", "Emily Bronte", "464", false);
 updateLibrary();

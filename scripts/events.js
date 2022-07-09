@@ -2,10 +2,26 @@ import { myLibrary } from "./library.js";
 import { refreshDisplay } from "./display.js";
 
 function clickRemove(event) {
-	let button = event.currentTarget;
-	let index = button.dataset.index;
+	let index = getIndex(event);
 	myLibrary.splice(index, 1);
 	refreshDisplay();
 }
 
-export { clickRemove };
+function clickRead(event) {
+	let index = getIndex(event);
+	let book = myLibrary[index];
+
+	if (book.read) {
+		book.read = false;
+	} else {
+		book.read = true;
+	}
+	refreshDisplay();
+}
+
+function getIndex(event) {
+	let button = event.currentTarget;
+	return button.dataset.index;
+}
+
+export { clickRemove, clickRead };
