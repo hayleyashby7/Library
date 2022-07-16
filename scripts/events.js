@@ -26,4 +26,10 @@ function getIndex(event) {
 	return button.dataset.index;
 }
 
+function openForm() {
+	document.getElementById("newBook").style.display = "block";
+}
+function closeForm() {
+	document.getElementById("newBook").style.display = "none";
+}
 export { clickRemove, clickRead };
