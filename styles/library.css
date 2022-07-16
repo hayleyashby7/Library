@@ -1,0 +1,57 @@
+* {
+	--page: #faedcd;
+	--text: brown;
+	--button: #e9edc9;
+	--border: black;
+}
+
+#library {
+	display: flex;
+	flex-flow: row wrap;
+	gap: 10px;
+}
+
+.card {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: 4fr 1fr;
+	grid-template-areas: "book book" "read remove";
+	background-color: var(--page);
+	border: 2px solid var(--border);
+	color: var(--text);
+	width: 275px;
+	height: 125px;
+}
+
+.book-data {
+	margin: 10px;
+	text-align: start;
+	grid-area: book;
+}
+
+.read {
+	grid-area: read;
+}
+
+.remove {
+	grid-area: remove;
+}
+
+#controls {
+	margin: 5px 0px;
+	width: fit-content;
+}
+
+.control {
+	margin: 2px;
+	background-color: var(--button);
+	color: var(--text);
+	border-radius: 10px;
+	width: fit-content;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
