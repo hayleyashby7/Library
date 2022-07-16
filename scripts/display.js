@@ -6,7 +6,7 @@ function createBookElement(book, index) {
 	card.classList.add("card");
 	card.setAttribute("data-index", index);
 	card.append(bookDataElement(book));
-	card.append(bookReadButton(book, index));
+	card.append(bookReadToggle(book, index));
 	card.append(bookRemoveButton(book, index));
 
 	document.getElementById("library").append(card);
@@ -19,7 +19,6 @@ function bookDataElement(book) {
 	bookElem.appendChild(titleListElem(book.title));
 	bookElem.appendChild(authorListElem(book.author));
 	bookElem.appendChild(pagesListElem(book.pages));
-	bookElem.appendChild(readListElem(book.read));
 
 	return bookElem;
 
@@ -43,33 +42,46 @@ function bookDataElement(book) {
 		pagesElem.innerHTML = "(" + pages + " pages)";
 		return pagesElem;
 	}
-
-	function readListElem(read) {
-		let readElem = document.createElement("li");
-		readElem.classList.add("read");
-		if (read) {
-			readElem.innerHTML = "Have Read";
-		} else {
-			readElem.innerHTML = "Not Read";
-		}
-		return readElem;
-	}
 }
 
-function bookReadButton(book, index) {
-	let readButton = document.createElement("button");
-	readButton.classList.add("control");
-	readButton.classList.add("read");
-	readButton.setAttribute("type", "button");
-	readButton.setAttribute("data-index", index);
-	if (book.read) {
-		readButton.innerHTML = "NOT READ";
-	} else {
-		readButton.innerHTML = "HAVE READ";
-	}
-	readButton.addEventListener("click", clickRead);
+function bookReadToggle(book, index) {
+	let readToggle = document.createElement("label");
+	readToggle.classList.add("read-toggle");
+	readToggle.setAttribute("data-index", index);
+	readToggle.appendChild(bookReadInput(book.read));
 
-	return readButton;
+	readToggle.appendChild(bookReadSwitch());
+	readToggle.appendChild(bookReadLabel());
+
+	return readToggle;
+
+	function bookReadInput(read) {
+		let readInput = document.createElement("input");
+		readInput.setAttribute("type", "checkbox");
+		readInput.classList.add("toggle-checkbox");
+		if (read === true) {
+			readInput.checked = true;
+		} else {
+			readInput.checked = false;
+		}
+
+		return readInput;
+	}
+
+	function bookReadSwitch() {
+		let readSwitch = document.createElement("div");
+		readSwitch.classList.add("toggle-switch");
+		readSwitch.setAttribute("data-index", index);
+		readSwitch.addEventListener("click", clickRead);
+		return readSwitch;
+	}
+
+	function bookReadLabel() {
+		let readLabel = document.createElement("span");
+		readLabel.classList.add("toggle-label");
+		readLabel.innerHTML = "Read";
+		return readLabel;
+	}
 }
 
 function bookRemoveButton(book, index) {

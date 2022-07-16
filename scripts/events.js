@@ -1,5 +1,6 @@
 import { myLibrary } from "./library.js";
 import { refreshDisplay } from "./display.js";
+import "./book.js";
 
 function clickRemove(event) {
 	let index = getIndex(event);
@@ -9,18 +10,19 @@ function clickRemove(event) {
 
 function clickRead(event) {
 	let index = getIndex(event);
-	let book = myLibrary[index];
+	let targetBook = myLibrary[index];
 
-	if (book.read) {
-		book.read = false;
+	if (targetBook.read === false) {
+		targetBook.read = true;
 	} else {
-		book.read = true;
+		targetBook.read = false;
 	}
+
 	refreshDisplay();
 }
 
 function getIndex(event) {
-	let button = event.currentTarget;
+	let button = event.target;
 	return button.dataset.index;
 }
 

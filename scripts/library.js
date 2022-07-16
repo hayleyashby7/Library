@@ -13,6 +13,8 @@ export function updateLibrary() {
 	for (let i = 0; i < myLibrary.length; i++) {
 		createBookElement(myLibrary[i], i);
 	}
+
+	console.log(myLibrary);
 }
 
 addBookToLibrary("Nineteen Eighty-Four", "George Orwell", "328", true);
