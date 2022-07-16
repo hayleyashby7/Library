@@ -2,7 +2,7 @@ import { createBook } from "./book.js";
 import { createBookElement } from "./display.js";
 import { formSetUp } from "./form.js";
 
-export let myLibrary = [];
+let myLibrary = [];
 
 function addBookToLibrary(title, author, pages, read) {
 	let newBook = createBook(title, author, pages, read);
@@ -10,12 +10,10 @@ function addBookToLibrary(title, author, pages, read) {
 	myLibrary.push(newBook);
 }
 
-export function updateLibrary() {
+function updateLibrary() {
 	for (let i = 0; i < myLibrary.length; i++) {
 		createBookElement(myLibrary[i], i);
 	}
-
-	console.log(myLibrary);
 }
 
 addBookToLibrary("Nineteen Eighty-Four", "George Orwell", "328", true);
@@ -23,3 +21,5 @@ addBookToLibrary("Alice's Adventures in Wonderland", "Lewis Carroll", "320", tru
 addBookToLibrary("Wuthering Heights", "Emily Bronte", "464", false);
 updateLibrary();
 formSetUp();
+
+export { myLibrary, addBookToLibrary, updateLibrary };
