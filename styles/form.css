@@ -1,2 +1,48 @@
-function newBookEvent() {
+* {
+	--page: #faedcd;
+	--text: brown;
+	--button: #e9edc9;
+	--border: black;
+	box-sizing: border-box;
+}
+
+.form-button {
+	width: 100px;
+}
+
+.form-button:hover {
+	font-weight: bolder;
+}
+
+.form-container {
+	background-color: var(--page);
+	color: var(--text);
+	max-width: 250px;
+	border: 2px solid var(--border);
+}
+
+.form-container input[type="text"],
+.form-container input[type="number"] {
+	width: 100%;
+}
+
+.form-container input[type="text"],
+.form-container input[type="number"],
+.form-container input[type="checkbox"] {
+	padding: 10px;
+	padding: 10px;
+	margin: 5px 0px 22px 0px;
+}
+
+#newBook {
+	max-width: 250px;
+	display: none;
+	padding: 10px;
+	position: fixed;
+	top: 5px;
+	left: 50px;
+}
+
+.fade {
+	opacity: 0.25;
 }

@@ -104,11 +104,4 @@ function refreshDisplay() {
 	updateLibrary();
 }
 
-function openForm() {
-	document.getElementById("newBook").style.display = "block";
-}
-function closeForm() {
-	document.getElementById("newBook").style.display = "none";
-}
-
 export { createBookElement, refreshDisplay };

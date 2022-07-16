@@ -1,7 +1,6 @@
 function formSetUp() {
 	addNewBookEvent();
 	cancelNewBookEvent();
-	closeForm();
 }
 
 function addNewBookEvent() {
@@ -16,10 +15,12 @@ function cancelNewBookEvent() {
 
 function openForm() {
 	document.getElementById("newBook").style.display = "block";
+	document.getElementById("library").classList.add("fade");
 }
 
 function closeForm() {
 	document.getElementById("newBook").style.display = "none";
+	document.getElementById("library").classList.remove("fade");
 }
 
 export { formSetUp };
