@@ -37,6 +37,10 @@
 	grid-area: remove;
 }
 
+.not-read {
+	opacity: 0.7;
+}
+
 #controls {
 	margin: 5px 0px;
 	width: fit-content;
@@ -48,6 +52,7 @@
 	color: var(--text);
 	border-radius: 10px;
 	width: fit-content;
+	cursor: pointer;
 }
 
 ul {

@@ -4,6 +4,13 @@ import { updateLibrary } from "./library.js";
 function createBookElement(book, index) {
 	let card = document.createElement("div");
 	card.classList.add("card");
+
+	if (book.read === false) {
+		card.classList.add("not-read");
+	} else {
+		card.classList.remove("not-read");
+	}
+
 	card.setAttribute("data-index", index);
 	card.append(bookDataElement(book));
 	card.append(bookReadToggle(book, index));
@@ -49,7 +56,6 @@ function bookReadToggle(book, index) {
 	readToggle.classList.add("read-toggle");
 	readToggle.setAttribute("data-index", index);
 	readToggle.appendChild(bookReadInput(book.read));
-
 	readToggle.appendChild(bookReadSwitch());
 	readToggle.appendChild(bookReadLabel());
 
