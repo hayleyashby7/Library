@@ -1,5 +1,5 @@
 import { refreshDisplay } from "./display.js";
-import { addBookToLibrary, myLibrary, updateLibrary } from "./library.js";
+import { addBookToLibrary, myLibrary } from "./library.js";
 
 let title, author, pages, read;
 
@@ -16,6 +16,14 @@ function resetFormData() {
 	author = "";
 	pages = 0;
 	read = false;
+}
+
+function resetFormElements() {
+	let inputs = document.getElementsByTagName("input");
+
+	for (let input of inputs) {
+		input.value = "";
+	}
 }
 
 function newBookEvent() {
@@ -74,13 +82,13 @@ function openForm() {
 
 function closeForm() {
 	resetFormData();
+	resetFormElements();
 	document.getElementById("newBook").style.display = "none";
 	document.getElementById("library").classList.remove("fade");
 }
 
 function addBook() {
 	addBookToLibrary(title, author, pages, read);
-	console.log(myLibrary);
 	closeForm();
 	refreshDisplay();
 }
