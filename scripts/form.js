@@ -1,5 +1,5 @@
-import { addBookToLibrary, myLibrary } from "./library.js";
 import { refreshDisplay } from "./display.js";
+import { addBookToLibrary, myLibrary, updateLibrary } from "./library.js";
 
 let title, author, pages, read;
 
@@ -10,6 +10,7 @@ function formSetUp() {
 	addNewBookEvent();
 	cancelNewBookEvent();
 }
+
 function resetFormData() {
 	title = "";
 	author = "";
@@ -80,6 +81,7 @@ function closeForm() {
 function addBook() {
 	addBookToLibrary(title, author, pages, read);
 	console.log(myLibrary);
+	closeForm();
 	refreshDisplay();
 }
 
