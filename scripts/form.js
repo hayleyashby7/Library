@@ -19,10 +19,13 @@ function resetFormData() {
 }
 
 function resetFormElements() {
-	let inputs = document.getElementsByTagName("input");
-
+	let inputs = document.getElementsByClassName("form-input");
 	for (let input of inputs) {
-		input.value = "";
+		if (input.name === "read") {
+			input.checked = false;
+		} else {
+			input.value = "";
+		}
 	}
 }
 
@@ -76,15 +79,16 @@ function inputChanged(event) {
 
 function openForm() {
 	resetFormData();
+	resetFormElements();
 	document.getElementById("newBook").style.display = "block";
-	document.getElementById("library").classList.add("fade");
+	document.getElementById("main-display").classList.add("fade");
 }
 
 function closeForm() {
 	resetFormData();
 	resetFormElements();
 	document.getElementById("newBook").style.display = "none";
-	document.getElementById("library").classList.remove("fade");
+	document.getElementById("main-display").classList.remove("fade");
 }
 
 function addBook() {
