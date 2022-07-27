@@ -5,6 +5,7 @@
 	--text: #11999e;
 	--admin-text: #e4f9f5;
 	box-sizing: border-box;
+	font-family: "Comfortaa", cursive;
 }
 
 body {
@@ -12,8 +13,9 @@ body {
 }
 
 #main-display {
+	margin-top: 10px;
 	display: grid;
-	grid-template-columns: minmax(180px, 1fr) 4fr;
+	grid-template-columns: fit-content(300px) 1fr;
 	grid-template-rows: auto;
 	grid-template-areas: "admin library";
 }
@@ -34,7 +36,8 @@ body {
 	color: var(--text);
 	width: 300px;
 	height: auto;
-	box-shadow: 4px 2px 2px var(--background);
+	box-shadow: 4px 2px 2px var(--control);
+	font-size: 20px;
 }
 
 .book-data {
@@ -52,8 +55,34 @@ body {
 }
 
 #admin {
-	margin: 5px 0px;
+	margin: 0px 10px;
 	color: var(--admin-text);
+	border-right: 2px solid var(--card);
+}
+
+p.admin.text {
+	font-size: 20px;
+}
+
+h1.admin.text {
+	font-size: 40px;
+	grid-area: header;
+}
+
+.controls {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	grid-template-rows: auto;
+	grid-template-areas: "header header" "newBtn newTxt";
+	margin: 10px;
+}
+
+#new-btn {
+	grid-area: newBtn;
+}
+
+#new-text {
+	grid-area: newTxt;
 }
 
 .control {
@@ -62,9 +91,10 @@ body {
 	color: var(--background);
 	border-radius: 10px;
 	border: none;
-	height: 20px;
-	width: 30px;
+	height: 30px;
+	width: 45px;
 	cursor: pointer;
+	font-size: 25px;
 }
 
 ul {

@@ -16,6 +16,11 @@ function updateLibrary() {
 	}
 }
 
+addBookToLibrary("Nineteen Eighty-Four", "George Orwell", "328", true);
+addBookToLibrary("Alice's Adventures in Wonderland", "Lewis Carroll", "320", true);
+addBookToLibrary("Wuthering Heights", "Emily Bronte", "464", false);
+
+updateLibrary();
 formSetUp();
 
 export { myLibrary, addBookToLibrary, updateLibrary };

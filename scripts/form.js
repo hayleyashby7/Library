@@ -30,7 +30,7 @@ function resetFormElements() {
 }
 
 function newBookEvent() {
-	let newBookBtn = document.getElementById("new");
+	let newBookBtn = document.getElementById("new-btn");
 	newBookBtn.addEventListener("click", openForm);
 }
 
