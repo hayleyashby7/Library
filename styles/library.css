@@ -1,8 +1,21 @@
 * {
-	--page: #faedcd;
-	--text: brown;
-	--button: #e9edc9;
-	--border: black;
+	--background: #40514e;
+	--card: #e4f9f5;
+	--control: #30e3ca;
+	--text: #11999e;
+	--admin-text: #e4f9f5;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--background);
+}
+
+#main-display {
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+	grid-template-rows: auto;
+	grid-template-areas: "admin library";
 }
 
 #library {
@@ -13,14 +26,15 @@
 
 .card {
 	display: grid;
-	grid-template-columns: 2fr 1fr;
-	grid-template-rows: 4fr 1fr;
-	grid-template-areas: "book book" "read remove";
-	background-color: var(--page);
-	border: 2px solid var(--border);
+	grid-template-columns: 6fr 1fr;
+	grid-template-rows: auto;
+	grid-template-areas: "book remove-book" "read .";
+	background-color: var(--card);
+	border-radius: 25px;
 	color: var(--text);
-	width: 275px;
-	height: 125px;
+	width: 300px;
+	height: auto;
+	box-shadow: 4px 2px 2px var(--background);
 }
 
 .book-data {
@@ -29,29 +43,27 @@
 	grid-area: book;
 }
 
-.read {
-	grid-area: read;
-}
-
 .remove {
-	grid-area: remove;
+	grid-area: remove-book;
 }
 
 .not-read {
 	opacity: 0.7;
 }
 
-#controls {
+#admin {
 	margin: 5px 0px;
-	width: fit-content;
+	color: var(--admin-text);
 }
 
 .control {
-	margin: 2px;
-	background-color: var(--button);
-	color: var(--text);
+	margin: 10px;
+	background-color: var(--control);
+	color: var(--background);
 	border-radius: 10px;
-	width: fit-content;
+	border: none;
+	height: 20px;
+	width: 30px;
 	cursor: pointer;
 }
 

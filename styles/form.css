@@ -1,13 +1,5 @@
-* {
-	--page: #faedcd;
-	--text: brown;
-	--button: #e9edc9;
-	--border: black;
-	box-sizing: border-box;
-}
-
 .form-button {
-	width: 100px;
+	width: 75px;
 }
 
 .form-button:hover {
@@ -15,10 +7,10 @@
 }
 
 .form-container {
-	background-color: var(--page);
+	background-color: var(--card);
 	color: var(--text);
 	max-width: 250px;
-	border: 2px solid var(--border);
+	border: 2px solid var(--background);
 }
 
 .form-container input[type="text"],

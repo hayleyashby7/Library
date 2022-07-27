@@ -96,7 +96,7 @@ function bookRemoveButton(book, index) {
 	removeButton.classList.add("remove");
 	removeButton.setAttribute("type", "button");
 	removeButton.setAttribute("data-index", index);
-	removeButton.innerHTML = "REMOVE";
+	removeButton.innerHTML = "-";
 	removeButton.addEventListener("click", clickRemove);
 
 	return removeButton;

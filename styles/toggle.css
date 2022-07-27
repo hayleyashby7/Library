@@ -1,12 +1,14 @@
 .read-toggle {
 	cursor: pointer;
 	display: inline-block;
+	grid-area: read;
 }
 
 .toggle-switch {
 	display: inline-block;
 	background: #ccc;
 	border-radius: 16px;
+	margin: 5px;
 	width: 58px;
 	height: 32px;
 	position: relative;
@@ -19,7 +21,7 @@
 }
 .toggle-switch:before {
 	display: block;
-	background: var(--page);
+	background: var(--card);
 	border-radius: 50%;
 	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
 	width: 24px;
@@ -30,7 +32,7 @@
 	transition: left 0.25s;
 }
 .toggle:hover .toggle-switch:before {
-	background: var(--page);
+	background: var(--card);
 	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
 }
 .toggle-checkbox:checked + .toggle-switch {
